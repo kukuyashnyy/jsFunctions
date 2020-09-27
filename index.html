@@ -5,6 +5,134 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    //task1
+    function comparator(value_1, value_2) {
+        if ((value_1 - value_2) <= -1) return -1;
+        if ((value_1 - value_2) === 0) return 0;
+        if ((value_1 - value_2) >= 1) return 1;
+    }
 
+    //task2
+    function factorial(value) {
+        let temp = 1;
+        if (value === 0) {
+            console.log("Error zero factorial!")
+            return value;
+        } else {
+            for (let i = 1; i <= value; i++) {
+                temp *= i;
+            }
+        }
+        return temp;
+    }
+
+    //task3
+    function numbersToString(value_1, value_2, value_3) {
+        return "" + value_1 + value_2 + value_3;
+    }
+
+    //task4
+    function square(a, b = 1) {
+        if (a * b === 0) return 0;
+        if (b === 1) {
+            return a * a;
+        } else {
+            return a * b;
+        }
+    }
+
+    //task5
+    function sumDiv(val) {
+        let sum = 0;
+        for (let i = 1; i < val; i++) {
+            if (val % i === 0) sum += i;
+        }
+        return sum;
+    }
+
+    function finalNumber(val) {
+        if (val === 0) return false;
+        return val === sumDiv(val);
+    }
+
+    //task6
+    function getFinalNumbers(min, max) {
+        let numbs = "";
+        for (let i = min; i <= max; i++) {
+            if (finalNumber(i)) numbs += i + ", ";
+        }
+        return numbs.slice(0, numbs.length - 2);
+    }
+
+    //task7
+    function twoDigit(val) {
+        if (val === 0) return "00";
+        if (val < 10) {
+            return ("" + 0 + val);
+        } else {
+            return val;
+        }
+    }
+
+    function numbsToTimeString(hours = 0, minutes = 0, seconds = 0) {
+        return "" + twoDigit(hours) + ":" + twoDigit(minutes) + ":" + twoDigit(seconds);
+    }
+
+    //task8
+    function numbsToSec(hours = 0, minutes = 0, seconds = 0) {
+        return (hours * 3600) + (minutes * 60) + seconds;
+    }
+
+    //task9
+    function secToNums(seconds = 0) {
+        return "" + twoDigit((seconds / 3600).toFixed(0)) + ":" + twoDigit(((seconds % 3600) / 60).toFixed(0)) + ":" + twoDigit(seconds % 60);
+    }
+
+    //task10
+    function subTime(hours_1 = 0, minutes_1 = 0, seconds_1 = 0, hours_2 = 0, minutes_2 = 0, seconds_2 = 0) {
+        return secToNums(numbsToSec(hours_1, minutes_1, seconds_1) - numbsToSec(hours_2, minutes_2, seconds_2))
+    }
+
+    console.log("Task 1");
+    console.log(comparator(1, 2));
+    console.log(comparator(2, 2));
+    console.log(comparator(5, 2));
+
+    console.log("Task 2");
+    console.log(factorial(0));
+    console.log(factorial(3));
+
+    console.log("Task 3");
+    console.log(numbersToString(1, 2, 3));
+
+    console.log("Task 4");
+    console.log(square(4));
+
+    console.log("Task 5");
+    console.log(finalNumber(6));
+    console.log(finalNumber(8));
+
+    console.log("Task 6");
+    console.log(getFinalNumbers(0, 100));
+
+    console.log("Task 7");
+    console.log(numbsToTimeString());
+    console.log(numbsToTimeString(7));
+    console.log(numbsToTimeString(7, 1, 2));
+
+    console.log("Task 8");
+    console.log(numbsToSec());
+    console.log(numbsToSec(7));
+    console.log(numbsToSec(7, 1, 2));
+
+    console.log("Task 9");
+    console.log(secToNums());
+    console.log(secToNums(25200));
+    console.log(secToNums(25262));
+
+    console.log("Task 10");
+    console.log(subTime(7, 14, 23, 6, 10, 20));
+</script>
 </body>
 </html>
